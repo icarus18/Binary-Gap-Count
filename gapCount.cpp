@@ -1,5 +1,3 @@
-
-
 /*
 Sam_S 
 Binary Gap Count in c++
@@ -18,7 +16,6 @@ string addBits(long long b)
 	ss << b;
 	string aB;
 	ss >> aB;
-
 
 	if (b > 11111111) {
 		int stringlength = aB.length();
@@ -56,13 +53,12 @@ vector<int> Binbin(int n){
 		  return a;
 	  }
 	  else 
-		  for (int i = 0; n > 0; i++) {
-			  i = n % 2;
-			  a.push_back(i);
-			  n = n / 2;
-		  }
-	  
-	return a;
+	for (int i = 0; n > 0; i++) {
+		i = n % 2;
+		a.push_back(i);
+		n = n / 2;
+	  }
+	  return a;
 }
 
 vector<int> gapCount(string e) 
@@ -111,7 +107,6 @@ vector<int> gapCount(string e)
 	
 }
 
-
 int mAx(vector<int> w) {
 	
 	// returns the larger gap
@@ -125,12 +120,9 @@ int mAx(vector<int> w) {
 		if (x.at(z) > max)
 		{
 			max = x.at(z);
-
 		}
 	}
-
 	return max;
-	
 }
 
 int main()
@@ -161,30 +153,24 @@ int main()
 		
 		cout << "Binary Format: \n"<<result<<endl;
 			
-				
-			cout << "\nFormatted to 4, 8, or 12 bit: \n";
-			cout<< addBits(result);
+		cout << "\nFormatted to 4, 8, or 12 bit: \n";
+		cout<< addBits(result);
+					
+		string v = addBits(result);
+		
+		p = gapCount(v);// <-----was Causing Error
 			
-			
-			string v = addBits(result);
-			
-			
-			
-			p = gapCount(v);// <-----was Causing Error
-			
-			cout << "\nBinary Gaps: ";
-			int q = p.size();
-			for (int i = 0; i < q;i++) {
-				cout << p.at(i);
-				if (i != q - 1) {
-					cout << ",";
-				}
-			}
+		cout << "\nBinary Gaps: ";
+		int q = p.size();
+		for (int i = 0; i < q;i++) {
+			cout << p.at(i);
+			if (i != q - 1) {
+			cout << ",";
+		  }
+		}
 			 
-			cout << "\nMaximum Gap: " << mAx(p);
+		cout << "\nMaximum Gap: " << mAx(p);
 	}
 
 	return 0;
 }
-
-
